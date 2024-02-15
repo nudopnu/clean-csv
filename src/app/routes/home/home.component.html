@@ -1,5 +1,10 @@
 @if (fileItems.length > 0) {
-<csv-file-list [fileItems]="fileItems" (onDelete)="onFileDelete($event)"></csv-file-list>
+<main>
+    <csv-file-list id="file-list" [fileItems]="fileItems" (onDelete)="onFileDelete($event)"></csv-file-list>
+    @if (selectedFileItem) {
+    <csv-work-area id="work-area" [fileItem]="selectedFileItem"></csv-work-area>
+    }
+</main>
 } @else {
 <csv-upload (onFileUpload)="onFileUpload($event)"></csv-upload>
 }

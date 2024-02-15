@@ -9,13 +9,15 @@ import { HomeComponent } from './routes/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UploadComponent } from './components/upload/upload.component';
 import { FileListComponent } from './components/file-list/file-list.component';
+import { WorkAreaComponent } from './components/work-area/work-area.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UploadComponent,
-    FileListComponent
+    FileListComponent,
+    WorkAreaComponent
   ],
   imports: [
     BrowserModule,

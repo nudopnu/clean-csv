@@ -12,6 +12,7 @@ export class HomeComponent {
   fileItems: FileItem[] = [
     { encodings: ['utf8', 'windows'], filename: 'test.csv', selectedEncodingIndex: 0 },
   ];
+  selectedFileItem: FileItem | undefined = this.fileItems[0];
 
   async onFileUpload(file: File) {
     const encodings = await getEncodings(file);
