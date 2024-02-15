@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NzUploadFile } from 'ng-zorro-antd/upload';
+import { getEncodings, readFileContent } from '../../lib/utils';
 
 @Component({
   selector: 'csv-home',
@@ -7,14 +7,12 @@ import { NzUploadFile } from 'ng-zorro-antd/upload';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  
-  onFileUpload(file: NzUploadFile) {
-    console.log(file);
-    return "";
+
+  async onFileUpload(file: File) {
+    const encodings = await getEncodings(file);
+    const encoding = encodings[0].name;
+    const fileContent = await readFileContent(file, encoding);
+    console.log(fileContent);
   }
-  
-  onUpload(item: any) {
-    console.log(item);
-    return {} as any;
-  }
+
 }
