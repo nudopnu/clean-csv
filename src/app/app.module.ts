@@ -8,12 +8,14 @@ import { ZorroModule } from './modules/zorro/zorro.module';
 import { HomeComponent } from './routes/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UploadComponent } from './components/upload/upload.component';
+import { FileListComponent } from './components/file-list/file-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    UploadComponent
+    UploadComponent,
+    FileListComponent
   ],
   imports: [
     BrowserModule,

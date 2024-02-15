@@ -1,0 +1,20 @@
+<nz-list nzBordered>
+    <nz-list-header>Files</nz-list-header>
+    @for (fileItem of fileItems; track $index) {
+    <nz-list-item class="item">
+        <span nz-typography>{{ fileItem.filename }}</span>
+        <a nz-dropdown [nzDropdownMenu]="menu">
+            {{fileItem.encodings[fileItem.selectedEncodingIndex]}}
+            <span nz-icon nzType="down"></span>
+        </a>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu nzSelectable>
+                @for (encoding of fileItem.encodings; track $index) {
+                <li nz-menu-item (click)="onChangeEncoding(fileItem, encoding)">{{encoding}}</li>
+                }
+            </ul>
+        </nz-dropdown-menu>
+        <button nz-button nzType="default" nzShape="circle" nzDanger><span nz-icon nzType="delete" (click)="onDelete.emit(fileItem)"></span></button>
+    </nz-list-item>
+    }
+</nz-list>
