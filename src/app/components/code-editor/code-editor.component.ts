@@ -36,7 +36,7 @@ export class CodeEditorComponent implements AfterContentInit, AfterViewInit {
       }
       return `${result}\n`;
     }
-    return `<span style="color: grey">${line}</span>\n`;
+    return `<span style="color: lightgrey; text-decoration: line-through;">${line}</span>\n`;
   };
 
   lolcat = (editor: any) => {

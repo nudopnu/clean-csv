@@ -1,10 +1,10 @@
 <nz-tabset nzType="card">
-    <nz-tab nzTitle="Preview">
-        <csv-table></csv-table>
-    </nz-tab>
     <nz-tab nzTitle="Edit">
         <ng-container *ngIf="fileContent() | async as content">
             <csv-code-editor [code]="content"></csv-code-editor>
         </ng-container>
+    </nz-tab>
+    <nz-tab nzTitle="Preview">
+        <csv-table></csv-table>
     </nz-tab>
 </nz-tabset>
