@@ -7,6 +7,8 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import { UserOutline, DownOutline, InboxOutline } from '@ant-design/icons-angular/icons';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzTableModule } from 'ng-zorro-antd/table';
+
 
 const icons: IconDefinition[] = [
   UserOutline,
@@ -25,6 +27,7 @@ const icons: IconDefinition[] = [
     NzIconModule,
     NzButtonModule,
     NzTabsModule,
+    NzTableModule,
   ]
 })
 export class ZorroModule { }

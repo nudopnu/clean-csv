@@ -17,10 +17,14 @@ export class HomeComponent {
   async onFileUpload(file: File) {
     const encodings = await getEncodings(file);
     const encoding = encodings[0].name;
-    const fileItem = { filename: file.name, encodings: encodings.map(encoding => encoding.name), selectedEncodingIndex: 0 } as FileItem;
+    const fileItem = {
+      filename: file.name,
+      encodings: encodings.map(encoding => encoding.name),
+      selectedEncodingIndex: 0,
+      file
+    } as FileItem;
     this.fileItems.push(fileItem);
-    const fileContent = await readFileContent(file, encoding);
-    console.log(fileContent);
+    this.selectedFileItem = this.fileItems.at(-1);
   }
 
   onFileDelete(fileItem: FileItem) {

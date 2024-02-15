@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { MOCK } from '../../lib/mock';
+import { readFileContent } from '../../lib/utils';
 import { FileItem } from '../../models/file-item.model';
 
 @Component({
@@ -8,9 +10,18 @@ import { FileItem } from '../../models/file-item.model';
 })
 export class WorkAreaComponent {
 
-  @Input() fileItem!: FileItem;
+  fileContent = input.required({
+    alias: 'fileItem',
+    transform: this.transform
+  });
 
-  fileContent = "";
-
+  async transform(fileItem: FileItem) {
+    const file = fileItem.file;
+    const encoding = fileItem.encodings[fileItem.selectedEncodingIndex];
+    if (!file) {
+      return MOCK.FILE_CONTENT;
+    }
+    return await readFileContent(file!, encoding);
+  }
 
 }

@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UploadComponent } from './components/upload/upload.component';
 import { FileListComponent } from './components/file-list/file-list.component';
 import { WorkAreaComponent } from './components/work-area/work-area.component';
+import { CodeEditorComponent } from './components/code-editor/code-editor.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { WorkAreaComponent } from './components/work-area/work-area.component';
     HomeComponent,
     UploadComponent,
     FileListComponent,
-    WorkAreaComponent
+    WorkAreaComponent,
+    CodeEditorComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
