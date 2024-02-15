@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { getEncodings, readFileContent } from '../../lib/utils';
 import { FileItem } from '../../models/file-item.model';
 import { CsvDetector } from '../../lib/csv-detector';
+import { CsvSpecs } from '../../models/csv-specs.model';
 
 @Component({
   selector: 'csv-home',
@@ -14,14 +15,10 @@ export class HomeComponent {
     { encodings: ['utf8', 'windows'], filename: 'test.csv', selectedEncodingIndex: 0 },
   ];
   selectedFileItem: FileItem | undefined = this.fileItems[0];
+  csvSpecs: CsvSpecs | undefined;
 
   async onFileUpload(file: File) {
     const encodings = await getEncodings(file);
-    const encoding = encodings[0].name;
-    const fileContent = await readFileContent(file, encoding);
-    const csvDetector = new CsvDetector();
-    const csvSpecs = csvDetector.detect(fileContent.split('\n'));
-    console.log(csvSpecs);
     const fileItem = {
       filename: file.name,
       encodings: encodings.map(encoding => encoding.name),

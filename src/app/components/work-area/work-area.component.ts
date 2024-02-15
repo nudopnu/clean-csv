@@ -2,6 +2,7 @@ import { Component, input } from '@angular/core';
 import { MOCK } from '../../lib/mock';
 import { readFileContent } from '../../lib/utils';
 import { FileItem } from '../../models/file-item.model';
+import { CsvDetector } from '../../lib/csv-detector';
 
 @Component({
   selector: 'csv-work-area',
@@ -16,7 +17,7 @@ export class WorkAreaComponent {
   });
 
   async transform(fileItem: FileItem) {
-    const file = fileItem.file;
+    const file = fileItem.file!;
     const encoding = fileItem.encodings[fileItem.selectedEncodingIndex];
     if (!file) {
       return MOCK.FILE_CONTENT;
