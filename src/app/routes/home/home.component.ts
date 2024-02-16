@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { getEncodings, readFileContent } from '../../lib/utils';
+import { getEncodings } from '../../lib/utils';
 import { FileItem } from '../../models/file-item.model';
-import { CsvDetector } from '../../lib/csv-detector';
-import { CsvSpecs } from '../../models/csv-specs.model';
+import { AddFileItemAction, ProcessFileAction, RemoveFileItemAction } from '../../models/state-actions.model';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'csv-home',
@@ -11,11 +11,7 @@ import { CsvSpecs } from '../../models/csv-specs.model';
 })
 export class HomeComponent {
 
-  fileItems: FileItem[] = [
-    { encodings: ['utf8', 'windows'], filename: 'test.csv', selectedEncodingIndex: 0 },
-  ];
-  selectedFileItem: FileItem | undefined = this.fileItems[0];
-  csvSpecs: CsvSpecs | undefined;
+  constructor(public stateService: StateService) { }
 
   async onFileUpload(file: File) {
     const encodings = await getEncodings(file);
@@ -25,11 +21,14 @@ export class HomeComponent {
       selectedEncodingIndex: 0,
       file
     } as FileItem;
-    this.fileItems.push(fileItem);
-    this.selectedFileItem = this.fileItems.at(-1);
+    const addFileAction = new AddFileItemAction(fileItem);
+    const processFileAction = new ProcessFileAction(fileItem);
+    this.stateService.submit(addFileAction);
+    this.stateService.submit(processFileAction);
   }
 
   onFileDelete(fileItem: FileItem) {
-    this.fileItems = this.fileItems.filter(item => item !== fileItem);
+    const removeFileAction = new RemoveFileItemAction(fileItem);
+    this.stateService.submit(removeFileAction);
   }
 }
