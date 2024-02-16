@@ -38,7 +38,16 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/ng-zorro-antd/ng-zorro-antd.min.css"
+              {
+                "input": "src/styles/default.scss",
+                "bundleName": "default",
+                "inject": false
+              },
+              {
+                "input": "src/styles/dark.scss",
+                "bundleName": "dark",
+                "inject": false
+              }
             ],
             "scripts": []
           },

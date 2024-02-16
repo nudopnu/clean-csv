@@ -12,6 +12,7 @@ import { FileListComponent } from './components/file-list/file-list.component';
 import { WorkAreaComponent } from './components/work-area/work-area.component';
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 import { TableComponent } from './components/table/table.component';
+import { AppInitializerProvider } from './app-initializer.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { TableComponent } from './components/table/table.component';
     BrowserAnimationsModule,
     ZorroModule,
   ],
-  providers: [],
+  providers: [
+    AppInitializerProvider,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
