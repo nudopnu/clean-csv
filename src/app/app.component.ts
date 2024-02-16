@@ -9,10 +9,16 @@ import { ThemeService } from './services/theme.service';
 })
 export class AppComponent {
 
+  isCollapsed = false;
+  GITHUB_URL = "https://github.com/nudopnu/clean-csv";
+
   constructor(
     public stateService: StateService,
     public themeService: ThemeService,
   ) { }
 
-  isCollapsed = false;
+  onClickHelp() {
+    window.open(this.GITHUB_URL, '_blank');
+  }
+
 }
