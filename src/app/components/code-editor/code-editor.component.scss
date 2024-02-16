@@ -1,6 +1,6 @@
 :host {
     display: block;
-    overflow: scroll;
+    overflow-y: scroll;
     max-height: calc(100vh - 101px);
     max-width: 100%;
     font-family: "Source Code Pro", monospace;
