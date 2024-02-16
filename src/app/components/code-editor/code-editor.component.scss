@@ -1,7 +1,11 @@
 :host {
     display: block;
     overflow-y: scroll;
-    max-height: 80vh;
+    max-height: calc(100vh - 42px);
     font-family: "Source Code Pro", monospace;
     font-weight: 400;
+}
+
+::ng-deep .ant-tabs-nav {
+    margin: 0 !important;
 }

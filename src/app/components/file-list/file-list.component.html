@@ -15,8 +15,9 @@
                 }
             </ul>
         </nz-dropdown-menu>
-        <button nz-button nzType="default" nzShape="circle" nzDanger><span nz-icon nzType="delete"
-                (click)="onDelete.emit(fileItem)"></span></button>
+        <button nz-button nzType="default" nzShape="circle" nzDanger (click)="onDelete.emit(fileItem)">
+            <span nz-icon nzType="delete"></span>
+        </button>
     </nz-list-item>
     }
 </nz-list>
