@@ -1,7 +1,5 @@
 @if (stateService.currentState.fileItems.length > 0) {
 <main>
-    <csv-file-list id="file-list" [fileItems]="stateService.currentState.fileItems"
-        (onDelete)="onFileDelete($event)"></csv-file-list>
     @if (stateService.currentState.selectedFileItem) {
     <csv-work-area id="work-area" [processedFileItem]="stateService.currentState.selectedFileItem"></csv-work-area>
     }

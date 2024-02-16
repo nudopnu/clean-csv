@@ -1,9 +1,15 @@
 :host {
     display: block;
-    overflow-y: scroll;
+    overflow: scroll;
     max-height: calc(100vh - 101px);
+    max-width: 100%;
     font-family: "Source Code Pro", monospace;
     font-weight: 400;
+}
+
+#editor {
+    white-space: nowrap !important;
+    max-width: 100%;
 }
 
 ::ng-deep .ant-tabs-nav {

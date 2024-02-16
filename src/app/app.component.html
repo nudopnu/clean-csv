@@ -22,8 +22,6 @@
 <nz-drawer nzCloseIcon="menu-fold" [nzVisible]="isCollapsed" nzPlacement="left" nzTitle="Opened Files"
     (nzOnClose)="isCollapsed = false">
     <ng-container *nzDrawerContent>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <csv-file-list id="file-list" [fileItems]="stateService.currentState.fileItems"></csv-file-list>
     </ng-container>
 </nz-drawer>

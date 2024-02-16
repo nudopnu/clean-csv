@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from './services/state.service';
 
 @Component({
   selector: 'csv-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
+  constructor(public stateService: StateService) { }
+
   isCollapsed = false;
 }

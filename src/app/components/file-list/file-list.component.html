@@ -1,9 +1,8 @@
-<nz-list id="list" nzBordered>
-    <nz-list-header>Files</nz-list-header>
+<nz-list id="list">
     @for (fileItem of fileItems; track $index) {
     <nz-list-item class="item">
         <span nz-icon nzType="file"></span>
-        <span nz-typography>{{ fileItem.filename }}</span>
+        <span id="filename" nz-typography>{{ fileItem.filename }}</span>
         <a nz-dropdown [nzDropdownMenu]="menu">
             {{fileItem.encodings[fileItem.selectedEncodingIndex]}}
             <span nz-icon nzType="down"></span>
@@ -15,9 +14,11 @@
                 }
             </ul>
         </nz-dropdown-menu>
-        <button nz-button nzType="default" nzShape="circle" nzDanger (click)="onDelete.emit(fileItem)">
+        <button nz-button nzType="default" nzShape="circle" nzDanger (click)="onDelete(fileItem)">
             <span nz-icon nzType="delete"></span>
         </button>
     </nz-list-item>
+    } @empty {
+        <p>No files opened.</p>
     }
 </nz-list>
