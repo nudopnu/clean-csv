@@ -1,1 +1,29 @@
-<router-outlet></router-outlet>
+<header id="header">
+    <nav>
+        <div id="nav-left">
+            <span class="trigger" nz-icon nzType="menu-unfold" (click)="isCollapsed = !isCollapsed"></span>
+            <h3>clean-csv</h3>
+        </div>
+        <div id="nav-buttons">
+            <button nz-button nzShape="circle" nzSize="small">
+                <span nz-icon nzType="question"></span>
+            </button>
+            <button nz-button nzShape="circle" nzSize="small">
+                <span nz-icon nzType="bg-colors"></span>
+            </button>
+        </div>
+    </nav>
+    <nz-divider></nz-divider>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<nz-drawer nzCloseIcon="menu-fold" [nzVisible]="isCollapsed" nzPlacement="left" nzTitle="Opened Files"
+    (nzOnClose)="isCollapsed = false">
+    <ng-container *nzDrawerContent>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+    </ng-container>
+</nz-drawer>
