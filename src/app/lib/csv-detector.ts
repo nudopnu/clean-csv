@@ -1,6 +1,6 @@
-import { CsvSpecs } from "../models/csv-specs.model";
 import { Counter } from "./counter";
-import { CsvDelimiter, CsvDelimiters } from "./csv-delimiter.model";
+import { CsvDelimiter, CsvDelimiters } from "./csv-delimiter";
+import { CsvSpecs } from "./csv-specs";
 import { ElementCounter } from "./element-counter";
 
 export class CsvDetector {

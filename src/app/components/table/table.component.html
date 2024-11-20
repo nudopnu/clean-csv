@@ -1,24 +1,37 @@
-   <nz-table #filterTable [nzData]="listOfData" nzTableLayout="fixed">
-      <thead>
+<p-table #dt [columns]="selectedColumns" [value]="values()" [paginator]="true" [reorderableColumns]="true"
+    [scrollable]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20, 50]" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="caption">
+        <section class="pb-4">
+            <label for="minmax-buttons" class="block">
+                First Line:
+            </label>
+            <p-inputNumber [(ngModel)]="skipLines" mode="decimal" [showButtons]="true" inputId="minmax-buttons"
+                [min]="0" [max]="100" />
+        </section>
+        <section class="pb-4">
+            <label for="columns" class="block">
+                Columns:
+            </label>
+            <p-multiSelect inputId="columns" display="chip" [options]="cols()" [(ngModel)]="selectedColumns"
+                optionLabel="header" selectedItemsLabel="{0} columns selected"
+                [style]="{'min-width': '200px', 'position': 'relative'}" placeholder="Choose Columns" />
+        </section>
+        <section class="pb-4">
+            <p-button icon="pi pi-external-link" label="Export" (onClick)="export(dt)" />
+        </section>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
         <tr>
-          <th
-            *ngFor="let column of listOfColumns"
-            [nzSortOrder]="column.sortOrder"
-            [nzSortFn]="column.sortFn"
-            [nzSortDirections]="column.sortDirections"
-            [nzFilterMultiple]="column.filterMultiple"
-            [nzFilters]="column.listOfFilter"
-            [nzFilterFn]="column.filterFn"
-          >
-            {{ column.name }}
-          </th>
+            <th *ngFor="let col of columns" style="text-wrap: nowrap;" pReorderableColumn>
+                {{col.header}}
+            </th>
         </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of filterTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
+    </ng-template>
+    <ng-template pTemplate="body" let-product let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns" style="text-wrap: nowrap;">
+                {{product[col.field]}}
+            </td>
         </tr>
-      </tbody>
-    </nz-table>
+    </ng-template>
+</p-table>
