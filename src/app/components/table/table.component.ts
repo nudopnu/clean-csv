@@ -68,6 +68,7 @@ export class TableComponent {
       if (i === this.selectedColumns.length - 1) { break; }
       result += ";";
     }
+    result += "\n";
     /* Add data */
     for (let j = 0; j < rows.length; j++) {
       const row = rows[j];
