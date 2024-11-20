@@ -44,8 +44,8 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     initFlowbite();
-    const file = await getMockFile();
-    this.file.set(file);
+    // const file = await getMockFile();
+    // this.file.set(file);
   }
 
   onFileReceived(file: File) {
