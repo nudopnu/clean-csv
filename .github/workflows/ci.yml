@@ -25,7 +25,7 @@ jobs:
       run: npm run build:prod
 
     - name: Enable Routing
-      run: cp dist/client/browser/index.html dist/client/browser/404.html
+      run: cp dist/browser/index.html dist/browser/404.html
 
     - name: Deploy
       if: success()
