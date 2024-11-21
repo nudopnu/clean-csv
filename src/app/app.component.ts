@@ -11,11 +11,13 @@ import { CsvDetector } from './lib/csv-detector';
 import { CsvParser } from './lib/csv-parser';
 import { getEncodings, readFileContent } from './lib/utils';
 import { getMockFile } from './mocks/mock-file';
+import { ExpandButtonComponent } from "./components/expand-button/expand-button.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CodeComponent, FileInputComponent, LabelComponent, MermaidComponent, DarkModeToggleComponent, TableComponent],
+  imports: [CommonModule,RouterOutlet, CodeComponent, FileInputComponent, LabelComponent, MermaidComponent, DarkModeToggleComponent, TableComponent, ExpandButtonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -24,6 +26,7 @@ export class AppComponent implements OnInit {
   file = signal<File | undefined>(undefined);
   rows = signal<string[][] | undefined>(undefined);
   skipLines = model(0);
+  expanded = model(false);
 
   constructor() {
     effect(async () => {

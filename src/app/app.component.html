@@ -1,5 +1,6 @@
 <app-dark-mode-toggle></app-dark-mode-toggle>
-<main class="mx-auto max-w-4xl">
+<app-expand-button [(expanded)]="expanded" class="hidden lg:inline-block"></app-expand-button>
+<main class="mx-auto" [ngClass]="{'max-w-4xl': !expanded()}">
   <app-file-input (onFileReceived)="onFileReceived($event)"></app-file-input>
   @if (rows(); as rows) {
     <app-table [rows]="rows" [(skipLines)]="skipLines"></app-table>
