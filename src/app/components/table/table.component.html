@@ -1,4 +1,4 @@
-<p-table #dt [columns]="selectedColumns" [value]="values()" [paginator]="true" [reorderableColumns]="true"
+<p-table #dt [columns]="selectedColumns" [value]="values()" [paginator]="true" [reorderableColumns]="true" selectionMode="single" 
     [scrollable]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20, 50]" [tableStyle]="{'min-width': '50rem'}">
     <ng-template pTemplate="caption">
         <section class="pb-4">
