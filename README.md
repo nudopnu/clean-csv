@@ -14,7 +14,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Prerequisites
 
-- NodeJs (~22.11.0)
+- [NodeJs](https://nodejs.org/en/download/package-manager) (~22.11.0)
 
 ## Local installation
 
